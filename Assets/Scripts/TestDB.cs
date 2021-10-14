@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class TestDB : MonoBehaviour
 {
-   private void Awake() {
-   using (var con = new SqliteConnection("Data source = Test.db"))
+   
+   public string DataSource;
+   protected string databasePath;
+      private void Awake() {
+   using (var con = new SqliteConnection($"Data source = {DataSource}"))
     {
        con.Open();
     }
